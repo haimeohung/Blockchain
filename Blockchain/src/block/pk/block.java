@@ -64,15 +64,15 @@ public class block {
 		
 	}
 	
-	public static void PrintBlockchain(block [] blockchain)
+	public static void PrintBlockchain(block [] blockchain, int length)
 	{
-		for (int i = 0; i < blockchain.length - 1; i++) {
+		for (int i = 0; i < length - 1; i++) {
 			System.out.println("Block: " + blockchain[i].index + " (" + blockchain[i].hash + ")");
 			System.out.println("|");
 			System.out.println("v");
 			
 		}
-		System.out.println("Block: " + blockchain[blockchain.length -1].index + " (" + blockchain[blockchain.length -1].hash + ")");
+		System.out.println("Block: " + blockchain[length -1].index + " (" + blockchain[length -1].hash + ")");
 		
 		
 	}

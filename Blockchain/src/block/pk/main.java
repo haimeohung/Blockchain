@@ -10,6 +10,10 @@ public class main {
 	{
 		
 		block blockchain[] = new block[100];
+		for (int j = 0; j < 100; j++)
+		{
+			blockchain[j] = new block();
+		}
 		int i = 0;
 		while (true)
 		{
@@ -18,7 +22,7 @@ public class main {
 			Scanner NewScanner = new Scanner(System.in);
 			int temp = NewScanner.nextInt();
 			if (temp == 1) {
-				blockchain[i] = new block();
+				
 				if (i == 0) {
 					blockchain[i] = block.getGenesisBlock();	
 					blockchain[i].PrintBlock();
@@ -47,7 +51,7 @@ public class main {
 				i++;
 			}
 			if (temp == 2) {
-				block.PrintBlockchain(blockchain);
+				block.PrintBlockchain(blockchain, i);
 			}
 			if (temp == 3) {
 				System.exit(0);
