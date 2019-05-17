@@ -1,14 +1,11 @@
 package block.pk;
 
-import java.io.IOException;
-import java.security.Timestamp;
-import java.sql.Date;
 import java.util.Scanner;
 
 public class main {
-	public static void main(String args[]) throws InterruptedException, IOException
+	public static void main(String args[]) 
 	{
-		
+		double reward = 50;
 		block blockchain[] = new block[100];
 		for (int j = 0; j < 100; j++)
 		{
@@ -20,27 +17,32 @@ public class main {
 			System.out.println("[1. Create new block, 2. Print blockchain, 3. Exit]");
 			@SuppressWarnings("resource")
 			Scanner NewScanner = new Scanner(System.in);
-			int temp = NewScanner.nextInt();
+			int temp = Integer.parseInt(NewScanner.nextLine());
 			if (temp == 1) {
 				
 				if (i == 0) {
+					System.out.println("Create block Genesis ... ");
 					blockchain[i] = block.getGenesisBlock();	
 					blockchain[i].PrintBlock();
 				}
 				else {
 					System.out.print("-> Enter data: ");
-					String data = NewScanner.next();
+					String data;
+					data = NewScanner.nextLine();
+					
 					blockchain[i].index = blockchain[i-1].index + 1;
 					blockchain[i].previous_hash = blockchain[i-1].hash;
 					blockchain[i].data = data;
 					
 					long current_time = System.currentTimeMillis();
-					Pair ans = miner.FindNonce(blockchain[i], 5);
+					Pair ans = miner.FindNonce(blockchain[i], i+2);
 					System.out.println("-------------------");
 					System.out.println("Nonce: " + ans.nonce);
-					long time = (System.currentTimeMillis() - current_time)/1000;
-					System.out.println("Time: " + time + " s");		
+					long time = (System.currentTimeMillis() - current_time);
+					System.out.println("Time: " + time + " ms");	
+					System.out.println("Miner' s reward: " + reward + " BTC");	reward/=2;
 					System.out.println("-------------------");
+					
 					blockchain[i].hash = ans.hash;
 					
 					
