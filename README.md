@@ -19,3 +19,8 @@ Tóm tắt lại bằng class Diagram và Sequency Diagram phía dưới.
 ![SequenceDiagram](https://user-images.githubusercontent.com/43202025/58762622-c3905b00-857b-11e9-9037-93f1cbdb9a6a.png)
 
 
+<h1> 3. Một vài lưu ý </h1>
+
+Điểm trọng tâm của blockchain có lẽ là câu chuyện sync & cơ chế đồng thuận mạng lưới, tuy nhiên phần code đó hơi phức tạp nên trong class chỉ tạo một đối tượng chain, miner và user (người dùng) tương tác với nhau.
+
+Source code được viết trên IDE Eclipse, nếu không muốn tải Eclipse về thì bạn có thể copy các file class rồi chạy trên IDE/ Editor nào đó hỗ trợ Java là được, ví dụ như VS code, Netbeans.
